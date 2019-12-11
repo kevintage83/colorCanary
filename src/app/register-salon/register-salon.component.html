@@ -20,11 +20,17 @@
       </mat-form-field>
   
       <mat-form-field class="form-element">
-        <input matInput placeholder="Create a Password" formControlName="password">
+        <input matInput placeholder="Create a Password" formControlName="password" type="password" (input)="onPasswordInput()">
         <mat-hint>Minimum eight characters, one uppercase letter and one number</mat-hint>
         <mat-error *ngIf="!formGroup.controls['password'].valid && formGroup.controls['password'].touched">
           {{ getErrorPassword() }}
         </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-element">
+        <input matInput placeholder="Confirm Password" formControlName="password2" type="password" (input)="onPasswordInput()">
+        <mat-hint>Re-enter your password</mat-hint>
+        <mat-error *ngIf="password2.invalid && !password2.hasError('required')">Passwords don't match</mat-error>
       </mat-form-field>
   
       <div class="form-element">

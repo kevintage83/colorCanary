@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl, ValidatorFn, ValidationErrors } from '@angular/forms';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -17,7 +17,7 @@ export class RegisterSalonComponent implements OnInit {
 
   ngOnInit() {
     this.createForm();
-    this.setChangeValidate()
+    this.setChangeValidate();
   }
 
   createForm() {
@@ -26,8 +26,8 @@ export class RegisterSalonComponent implements OnInit {
       'email': [null, [Validators.required, Validators.pattern(emailregex)], this.checkInUseEmail],
       'name': [null, Validators.required],
       'password': [null, [Validators.required, this.checkPassword]],
-      'validate': ''
-    });
+      'password2': ['', [Validators.required]]
+    }, {validator: passwordMatchValidator});
   }
 
   setChangeValidate() {
@@ -81,4 +81,21 @@ export class RegisterSalonComponent implements OnInit {
     this.post = post;
   }
 
+  get password() { return this.formGroup.get('password'); }
+  get password2() { return this.formGroup.get('password2'); }
+
+  onPasswordInput() {
+    if (this.formGroup.hasError('passwordMismatch'))
+      this.password2.setErrors([{'passwordMismatch': true}]);
+    else
+      this.password2.setErrors(null);
+  }
+
 }
+
+export const passwordMatchValidator: ValidatorFn = (formGroup: FormGroup): ValidationErrors | null => {
+  if (formGroup.get('password').value === formGroup.get('password2').value)
+    return null;
+  else
+    return {passwordMismatch: true};
+};
