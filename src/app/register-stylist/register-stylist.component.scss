@@ -26,3 +26,13 @@
     display: flex;
     justify-content: center;
 }
+
+@media (min-width: 960px) {
+    .form {
+        width: 80%;
+    }
+
+    .pageTitle {
+        margin-right: 20%;
+    }
+}

@@ -1,11 +1,14 @@
-<mat-sidenav-container class="sidenav-container">
-  <mat-sidenav 
-    #drawer class="sidenav" 
+<mat-sidenav-container 
+  class="sidenav-container"
+  role="navigation">
+  <mat-sidenav position="end"
+    #drawer 
+    class="sidenav" 
     fixedInViewport="true"
     [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [mode]="(isHandset$ | async) ? 'over' : 'side'"
     [opened]="!(isHandset$ | async)">
-    <button
+    <button class="closeButton"
       type="button"
       aria-label="Toggle sidenav"
       mat-icon-button
@@ -13,14 +16,20 @@
       *ngIf="isHandset$ | async">
       <mat-icon aria-label="Side nav toggle icon">close</mat-icon>
     </button>
-    <mat-nav-list>
-      <a mat-list-item href="#">Home</a>
-      <a mat-list-item href="#">My Client List</a>
+    <mat-nav-list role="directory">
+      <a mat-list-item routerLink="/home">Home</a>
+      <a mat-list-item routerLink="/stylistClientList">My Client List</a>
+      <a mat-list-item routerLink="/loginSalon">Salon Login</a>
+      <a mat-list-item routerLink="/loginStylist">Stylist Login</a><hr>
+      <a mat-list-item routerLink="/registerSalon">Salon Registration</a>
+      <a mat-list-item routerLink="/registerStylist">Stylist Registration</a>
       <a mat-list-item href="#">Sign Out</a>
     </mat-nav-list>
   </mat-sidenav>
-  <mat-sidenav-content>
+  <mat-sidenav-content role="main">
     <mat-toolbar color="primary">
+      <span>Color Canary</span>
+      <span class="spacer"></span>
       <button
         type="button"
         aria-label="Toggle sidenav"
@@ -29,8 +38,8 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>Color Canary</span>
     </mat-toolbar>
     <!-- Add Content Here -->
+    <ng-content></ng-content>
   </mat-sidenav-content>
 </mat-sidenav-container>
