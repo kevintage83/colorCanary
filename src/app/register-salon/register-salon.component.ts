@@ -28,7 +28,8 @@ export class RegisterSalonComponent implements OnInit {
       'email': [null, [Validators.required, Validators.pattern(emailregex)], this.checkInUseEmail],
       'name': [null, Validators.required],
       'password': [null, [Validators.required, this.checkPassword]],
-      'password2': ['', [Validators.required]]
+      'password2': ['', [Validators.required]],
+      'validate': ''
     }, {validator: passwordMatchValidator});
   }
 
