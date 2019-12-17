@@ -2,6 +2,11 @@
 <div class="pageTitle">
   <h2>Stylist Login</h2>
 </div>
+
+<div class="pageTitle">
+  <mat-card>{{today | date:'fullDate'}} {{today | date:'shortTime'}}</mat-card>  
+</div>
+
 <div class="container" *ngIf="!post; else forminfo" novalidate> 
   <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" class="form">
 
@@ -21,12 +26,14 @@
     </mat-form-field>
 
     <div class="form-element">
-      <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!formGroup.valid">Submit Form</button>
+      <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!formGroup.valid">Sign In</button>
     </div>
 
   </form>
 </div>
 
+<!-- The ng-template below will simply output the input from the form fields (above). We eventually need to post this JSON data to our db 
+https://stackblitz.com/edit/example-angular-material-reactive-form?file=app%2Fapp.component.ts for example source code-->
 <ng-template #forminfo>
   <div class="container">
     {{ post | json }}

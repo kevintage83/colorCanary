@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./login-stylist.component.scss']
 })
 export class LoginStylistComponent implements OnInit {
-
+  today: number = Date.now();
   formGroup: FormGroup;
   titleAlert: string = 'This field is required';
   post: any = '';
@@ -17,7 +17,7 @@ export class LoginStylistComponent implements OnInit {
 
   ngOnInit() {
     this.createForm();
-    this.setChangeValidate()
+    this.setChangeValidate();
   }
 
   createForm() {

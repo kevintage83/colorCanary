@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule, MatTableModule } from '@angular/material';
 import { HomeComponent } from './home/home.component';
 import { RegisterSalonComponent } from './register-salon/register-salon.component';
 import { RegisterStylistComponent } from './register-stylist/register-stylist.component';
@@ -14,6 +14,7 @@ import { LoginSalonComponent } from './login-salon/login-salon.component';
 import { LoginStylistComponent } from './login-stylist/login-stylist.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../app/material.module';
+import { ColoringServicesTables } from './coloring-services-tables/coloring-services-tables.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { MaterialModule } from '../app/material.module';
     RegisterSalonComponent,
     RegisterStylistComponent,
     LoginSalonComponent,
-    LoginStylistComponent
+    LoginStylistComponent,
+    ColoringServicesTables
   ],
   imports: [
     BrowserModule,
@@ -36,7 +38,9 @@ import { MaterialModule } from '../app/material.module';
     MatIconModule,
     MatListModule,
     ReactiveFormsModule,
-    MaterialModule
+    MaterialModule,
+    MatCardModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
