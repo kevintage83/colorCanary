@@ -6,25 +6,23 @@
     class="sidenav" 
     fixedInViewport="true"
     [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-    [mode]="(isHandset$ | async) ? 'over' : 'side'"
-    [opened]="!(isHandset$ | async)">
+    [mode]="(isHandset$ | async) ? 'over' : 'over'">
     <button class="closeButton"
       type="button"
       aria-label="Toggle sidenav"
       mat-icon-button
-      (click)="drawer.toggle()"
-      *ngIf="isHandset$ | async">
+      (click)="drawer.toggle()">
       <mat-icon aria-label="Side nav toggle icon" style="color: red;">close</mat-icon>
     </button>
     <mat-nav-list role="directory">
       <a mat-list-item routerLink="/home">Home</a>
-      <a mat-list-item routerLink="/coloringServices">My Client List</a>
-      <a mat-list-item routerLink="/loginSalon">Salon Login</a>
-      <a mat-list-item routerLink="/loginStylist">Stylist Login</a>
+      <a mat-list-item routerLink="/coloringServices" (click)="drawer.toggle()">My Client List</a>
+      <a mat-list-item routerLink="/loginSalon" (click)="drawer.toggle()">Salon Login</a>
+      <a mat-list-item routerLink="/loginStylist" (click)="drawer.toggle()">Stylist Login</a>
       <hr>
-      <a mat-list-item routerLink="/registerSalon">Salon Registration</a>
-      <a mat-list-item routerLink="/registerStylist">Stylist Registration</a>
-      <a mat-list-item href="#">Sign Out</a>
+      <a mat-list-item routerLink="/registerSalon" (click)="drawer.toggle()">Salon Registration</a>
+      <a mat-list-item routerLink="/registerStylist" (click)="drawer.toggle()">Stylist Registration</a>
+      <a mat-list-item href="#" (click)="drawer.toggle()">Sign Out</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content role="main">
@@ -38,8 +36,7 @@
         type="button"
         aria-label="Toggle sidenav"
         mat-icon-button
-        (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async">
+        (click)="drawer.toggle()">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
     </mat-toolbar>
