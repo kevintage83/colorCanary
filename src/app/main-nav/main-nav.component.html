@@ -15,7 +15,7 @@
       <mat-icon aria-label="Side nav toggle icon" style="color: red;">close</mat-icon>
     </button>
     <mat-nav-list role="directory">
-      <a mat-list-item routerLink="/home">Home</a>
+      <a mat-list-item routerLink="/home" (click)="drawer.toggle()">Home</a>
       <a mat-list-item routerLink="/coloringServices" (click)="drawer.toggle()">My Client List</a>
       <a mat-list-item routerLink="/loginSalon" (click)="drawer.toggle()">Salon Login</a>
       <a mat-list-item routerLink="/loginStylist" (click)="drawer.toggle()">Stylist Login</a>
