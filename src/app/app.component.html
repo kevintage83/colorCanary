@@ -1,2 +1,47 @@
-<app-main-nav></app-main-nav>
-<router-outlet></router-outlet>
+<mat-sidenav-container 
+  class="sidenav-container"
+  role="navigation">
+  <mat-sidenav position="end"
+    #drawer 
+    class="sidenav" 
+    fixedInViewport="true"
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'over'">
+    <button class="closeButton"
+      type="button"
+      aria-label="Toggle sidenav"
+      mat-icon-button
+      (click)="drawer.toggle()">
+      <mat-icon aria-label="Side nav toggle icon" style="color: red;">close</mat-icon>
+    </button>
+    <mat-nav-list role="directory">
+      <a mat-list-item routerLink="/home" (click)="drawer.toggle()">Home</a>
+      <a mat-list-item routerLink="/coloringServices" (click)="drawer.toggle()">My Client List</a>
+      <a mat-list-item routerLink="/loginSalon" (click)="drawer.toggle()">Salon Login</a>
+      <a mat-list-item routerLink="/loginStylist" (click)="drawer.toggle()">Stylist Login</a>
+      <hr>
+      <a mat-list-item routerLink="/registerSalon" (click)="drawer.toggle()">Salon Registration</a>
+      <a mat-list-item routerLink="/registerStylist" (click)="drawer.toggle()">Stylist Registration</a>
+      <a mat-list-item href="#" (click)="drawer.toggle()">Sign Out</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content role="main">
+    <mat-toolbar color="primary">
+      <button mat-icon-button>
+          <mat-icon aria-label="Side nav toggle icon" routerLink="/home">opacity</mat-icon>
+      </button>
+      <span>Color Canary</span>
+      <span class="spacer"></span>
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+    </mat-toolbar>
+    <!-- Add Content Here --><router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
