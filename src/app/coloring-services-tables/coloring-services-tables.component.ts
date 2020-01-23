@@ -54,6 +54,7 @@ export class ColoringServicesTables implements OnInit {
   displayedColumns: string[] = ['select', 'serviceId', 'description', 'retail', 'setup']; 
   dataSource = new MatTableDataSource<ColoringService>(ELEMENT_DATA);
   selection = new SelectionModel<ColoringService>(true, []);
+  today: number = Date.now();
 
   /** Whether the number of selected elements matches the total number of rows. */
   isAllSelected() {
@@ -83,7 +84,7 @@ export class ColoringServicesTables implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() { 
   }
 
 }

@@ -6,15 +6,18 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule, MatTableModule, MatCheckboxModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatCardModule, MatTableModule, MatCheckboxModule, MatInputModule, MatExpansionModule } from '@angular/material';
 import { HomeComponent } from './home/home.component';
 import { RegisterSalonComponent } from './register-salon/register-salon.component';
 import { RegisterStylistComponent } from './register-stylist/register-stylist.component';
 import { LoginSalonComponent } from './login-salon/login-salon.component';
 import { LoginStylistComponent } from './login-stylist/login-stylist.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MaterialModule } from '../app/material.module';
 import { ColoringServicesTables } from './coloring-services-tables/coloring-services-tables.component';
+import { PostCreateComponent } from './posts/post-create/post-create.component';
+import { PostsComponent } from './posts/posts.component';
+import { PostListComponent } from './posts/post-list/post-list.component';
 
 @NgModule({
   declarations: [
@@ -25,10 +28,14 @@ import { ColoringServicesTables } from './coloring-services-tables/coloring-serv
     RegisterStylistComponent,
     LoginSalonComponent,
     LoginStylistComponent,
-    ColoringServicesTables
+    ColoringServicesTables,
+    PostCreateComponent,
+    PostsComponent,
+    PostListComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     LayoutModule,
@@ -41,7 +48,10 @@ import { ColoringServicesTables } from './coloring-services-tables/coloring-serv
     MaterialModule,
     MatCardModule,
     MatTableModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    FormsModule,
+    MatInputModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]
